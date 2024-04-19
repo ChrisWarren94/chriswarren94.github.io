@@ -6,51 +6,56 @@ https://www.youtube.com/watch?v=hYcBvgHoHWc
 https://github.com/livebloggerofficial/Table-of-Contents-2
 */
 
+/* 
+This command collects a list of the h2 and h3 elements from the html document. 
+The table of contents needs to mirror those heading elements. 
+*/
 const allHeadings = document.querySelectorAll(
-    ".page-content h2, .page-content h3"
+  ".page-content h2, .page-content h3"
 );
 
+// Create a variable for the <div> with the class "page-content"
 const pageContent = document.querySelector(".page-content");
 
-console.log(allHeadings);
+// console.log(allHeadings);
 
 const generateTOC = () => {
-    const tableOfContents = document.createElement("div");
-    tableOfContents.classList.add("table-of-contents");
+  const tableOfContents = document.createElement("div");
+  tableOfContents.classList.add("table-of-contents");
 
-    const tocHeading = document.createElement("h2");
-    tocHeading.classList.add("toc-heading");
-    tocHeading.innerHTML = "Table of Contents";
+  const tocHeading = document.createElement("h2");
+  tocHeading.classList.add("toc-heading");
+  tocHeading.innerHTML = "Table of Contents";
 
-    const headingsContainer = document.createElement("div");
-    headingsContainer.classList.add("headings-container");
+  const headingsContainer = document.createElement("div");
+  headingsContainer.classList.add("headings-container");
 
-    const ulTOC = document.createElement("ul");
+  const ulTOC = document.createElement("ul");
 
-    allHeadings.forEach((h) => {
-        const liTOC = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = `#${h.id}`;
-        a.classList.add("heading");
-        a.innerHTML = h.innerHTML;
+  allHeadings.forEach((h) => {
+    const liTOC = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = `#${h.id}`;
+    a.classList.add("heading");
+    a.innerHTML = h.innerHTML;
 
-        liTOC.appendChild(a);
+    liTOC.appendChild(a);
 
-        console.log(liTOC);
+    // console.log(liTOC);
 
-        ulTOC.appendChild(liTOC);
-        console.log(ulTOC);
-    });
+    ulTOC.appendChild(liTOC);
+    // console.log(ulTOC);
+  });
 
-    headingsContainer.appendChild(ulTOC);
-    tableOfContents.appendChild(tocHeading);
-    tableOfContents.appendChild(headingsContainer);
+  headingsContainer.appendChild(ulTOC);
+  tableOfContents.appendChild(tocHeading);
+  tableOfContents.appendChild(headingsContainer);
 
-    console.log(tableOfContents);
+  // console.log(tableOfContents);
 
-    pageContent.prepend(tableOfContents);
+  pageContent.prepend(tableOfContents);
 };
 
 if (allHeadings.length > 0 && pageContent) {
-    generateTOC();
-};
+  generateTOC();
+}
