@@ -16,9 +16,13 @@ div.codesample {
     padding: 5px;
 }
 
+div.codesample pre {
+    white-space: pre-wrap;
+}
+
 div.article {
     float: right;
-    width: calc(95% - var(--toc-width));
+    width: calc(100% - var(--toc-width) - 50px);
 }
 
 div.table-of-contents {
@@ -28,8 +32,21 @@ div.table-of-contents {
     background-color: var(--sidebar-background-color);
     color: var(--sidebar-text-color);
     height: 100%;
-    padding: 10px;
+    padding: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    div.table-of-contents {
+      width: calc(100% - 20px);
+      position:relative;
+      height: fit-content;
+    }
+    
+    div.article {
+        clear: both;
+        width: 100%;
+    }
+  }
 
 .headings-container li {
     /* list-style-type: none; */
@@ -43,4 +60,13 @@ div.table-of-contents {
 .table-of-contents a {
     color: var(--sidebar-text-color);
     text-decoration: none;
+}
+
+img {
+    max-width: 600px;
+    width: 100%;
+}
+
+figcaption {
+    font-style: italic;
 }
