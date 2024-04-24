@@ -1,12 +1,46 @@
 @import url('fonts.css');
 
-  
+:root {
+    --sidebar-background-color: #590CBA;
+    /* --sidebar-background-color: #210446; */
+    --sidebar-text-color: #FFFFFF;
+    --code-background-color: #210446;
+    --code-text-color: #FFFFFF;
 
-body {
-    font-family: sans-serif;
-}
+    --toc-width: 230px;
+}  
 
 div.codesample {
-    background-color: lightgray;
+    background-color: var(--code-background-color);
+    color: var(--code-text-color);
     padding: 5px;
+}
+
+div.article {
+    float: right;
+    width: calc(95% - var(--toc-width));
+}
+
+div.table-of-contents {
+    float: left;
+    width: var(--toc-width);
+    position:fixed;
+    background-color: var(--sidebar-background-color);
+    color: var(--sidebar-text-color);
+    height: 100%;
+    padding: 10px;
+}
+
+.headings-container li {
+    /* list-style-type: none; */
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+
+.table-of-contents a {
+    color: var(--sidebar-text-color);
+    text-decoration: none;
 }
