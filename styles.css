@@ -62,6 +62,10 @@ div.table-of-contents {
     text-decoration: none;
 }
 
+.attribution {
+    font-style: italic;
+}
+
 img {
     max-width: 600px;
     width: 100%;
